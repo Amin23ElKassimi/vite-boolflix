@@ -1,7 +1,10 @@
 <!-- HTML -->
 <template lang="">
     <main>
-        <AppSearch/>
+        <!-- <AppSearch @searchFilm="updateSearchMovie"/> -->
+        <input v-model="searchMovie" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <!-- con la emmit mando evoco la funzione che aggiorna il nome del film e gli mando il nome del film -->
+        <button @click="updateSearchMovie"   class="btn btn-outline-success" >Search</button>
         <CardList/>
     </main>
 </template>
@@ -26,7 +29,7 @@ export default {
     data() {
         return {
             filmList: [],
-            searchMovie: 'Ciao',
+            searchMovie: '',
             apiUrl: `https://api.themoviedb.org/3/search/movie?api_key=f032778f20863c5cc77348fa8099a129&query=`,
             
         }
@@ -49,7 +52,16 @@ export default {
                     // handle error
                     console.log(error);
                 });
-        }       
+        },
+        
+        
+
+        updateSearchMovie() {
+        
+            console.log(this.searchMovie);
+            this.getfilms();
+
+        }
     },
 
       // Hook dove richiamo le mie funzioni
