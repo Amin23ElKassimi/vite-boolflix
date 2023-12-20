@@ -1,5 +1,5 @@
 {
-  "name": "vite-boolflix",
+  "name": "vite-vue-3-api-lc",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,6 @@
   "dependencies": {
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
-    "node-fetch": "^2.7.0",
     "vue": "^3.3.11"
   },
   "devDependencies": {
