@@ -2,13 +2,19 @@
 <template lang="">
     <main>
         <!-- Lista Film da stampare come Cards -->
-        <div class="cards row">                                                          
-            <article v-for="card in cardList" class="p-0 text-uppercase fw-bold">
-                <h3>
+        <div class="lista">                                                          
+            <article v-for="card in cardList" class="cards text-uppercase fw-bold">
+                <p class="title">
                     {{card.title}}
-                </h3>
+                </p>
                 <p>
                     {{card.original_title}}
+                </p>
+                <p>
+                    Original Language: {{card.original_language}} {{en}}
+                </p>
+                <p>
+                    Vote: {{card.vote_average}}
                 </p>
              </article>
         </div>
@@ -28,7 +34,13 @@ export default {
     // Database variabili 
     data() {
         return {
-            filmList: [],          
+            filmList: [],
+            languageToCountryFlag: {
+                    en: '🇺🇸',
+                    es: '🇪🇸',
+                    // Aggiungi altri mapping lingua-banidera secondo necessità
+                    },
+                      
         }
     },
 
@@ -50,7 +62,7 @@ export default {
 <!-- SCSS -->
 <style lang="scss">
 
-// Use 
+
 @use '../styles/partials/variables.scss' as *;
     
     main {
@@ -58,22 +70,26 @@ export default {
         padding: 50px;
     }
 
+    .lista{
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-
-    article {
-        width: calc(100%  / 5 - 1rem);
+    .cards{
+        color: white;
+        width: calc(100% / 5 - 1rem);
+        padding: .5rem;
         margin-left: .5rem;
         margin-right: .5rem;
         margin-bottom: 1rem;
         background-color: $primary-bg;
+        background-color: #521c76;
+        text-align: center;
     }
 
-    #card-list{
-        background-color: white;
+    .title{
+        color: yellow;
     }
 
-    .row{
-        color: white;
-    }
     
 </style>
