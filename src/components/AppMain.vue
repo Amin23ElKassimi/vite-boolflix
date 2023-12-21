@@ -1,18 +1,14 @@
 <!-- HTML -->
 <template lang="">
     <main>
-        <!-- <CardList/> -->
         <!-- Lista Film da stampare come Cards -->
-        <div class="cards row">                                 <!--Prop  -->                               
-            <article class="p-0 text-uppercase fw-bold">
-                <section class="image">
-                    <img :src="card.card_images[0].image_url" alt="">
-                </section>
+        <div class="cards row">                                                          
+            <article v-for="card in cardList" class="p-0 text-uppercase fw-bold">
                 <h3>
-                    {{card.name}}
+                    {{card.title}}
                 </h3>
                 <p>
-                    {{card.archetype}}
+                    {{card.original_title}}
                 </p>
              </article>
         </div>
@@ -23,17 +19,11 @@
 <script>
 
 // Importa Componente
-import CardList from './CardList.vue';
 
-import axios from 'axios';
 
 // 
 export default {
 
-    //Dichiara Componente 
-    components :{
-    CardList,
-    },
 
     // Database variabili 
     data() {
@@ -42,11 +32,15 @@ export default {
         }
     },
 
-    // Dove Scrivere le Funzioni
-    methods: {
-        
+    // Props Ricevute da AppVue
+    props: {
+        cardList : {
+            type : Object,
+            require: true,
+        }
 
     },
+
 
 
 
@@ -62,6 +56,24 @@ export default {
     main {
         background-color: $primary-bg;
         padding: 50px;
+    }
+
+
+
+    article {
+        width: calc(100%  / 5 - 1rem);
+        margin-left: .5rem;
+        margin-right: .5rem;
+        margin-bottom: 1rem;
+        background-color: $primary-bg;
+    }
+
+    #card-list{
+        background-color: white;
+    }
+
+    .row{
+        color: white;
     }
     
 </style>

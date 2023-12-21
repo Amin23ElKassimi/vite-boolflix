@@ -3,7 +3,7 @@
 <!-- HTML -->
 <template lang="">
     <AppHeader @searchFilm="getFilms"/>
-    <AppMain/>
+    <AppMain :cardList="filmList"/>
 </template>
 
 <!-- JavaScript -->

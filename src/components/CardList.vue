@@ -10,7 +10,6 @@
         <div class="cards row">                                 <!--Prop  -->                               
             <SingleCard v-for="card in cardList" :key="card.id" :card="card" />
         </div>
-
     </section>
 </template>
 
