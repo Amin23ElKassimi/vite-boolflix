@@ -2,7 +2,7 @@
 
 <!-- HTML -->
 <template lang="">
-    <AppHeader @searchFilm='getfilms'/>
+    <AppHeader @searchFilm="getFilms"/>
     <AppMain/>
 </template>
 
@@ -35,30 +35,31 @@ export default {
     methods: {
         
         // Metodo Axios
-        getfilms( name ) {
-            // //            Qui ho fatto la concatenazione dell'URL
-            // axios.get(this.apiUrl + this.searchMovie)
-            //     .then( (response) => {
-            //         // handle success
-            //         // console.log(response.data.results);
-            //         this.filmList = response.data.results;
-            //         console.log(response.data.results);
-            //     })
-            //     .catch(function (error) {
-            //         // handle error
-            //         console.log(error);
-            //     });
+        getFilms( name ) {
+            //            Qui ho fatto la concatenazione dell'URL
+            axios.get(this.apiUrl + name)
+                .then( (response) => {
+                    // handle success
+                    // console.log(response.data.results);
+                    this.filmList = response.data.results;
+                    console.log(response.data.results);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                });
             console.log(name); 
         },
  
     },
 
     // Hook dove richiamo le mie funzioni
-    // created() {
+    created() {
 
-    // this.getfilms();
+    this.getFilms();
     
-    // }
+    
+    }
   
 }
 

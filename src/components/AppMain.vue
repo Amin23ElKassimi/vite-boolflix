@@ -2,10 +2,20 @@
 <template lang="">
     <main>
         <!-- <CardList/> -->
-        Lista Film da stampare come Cards
-        <article>
-
-        </article>
+        <!-- Lista Film da stampare come Cards -->
+        <div class="cards row">                                 <!--Prop  -->                               
+            <article class="p-0 text-uppercase fw-bold">
+                <section class="image">
+                    <img :src="card.card_images[0].image_url" alt="">
+                </section>
+                <h3>
+                    {{card.name}}
+                </h3>
+                <p>
+                    {{card.archetype}}
+                </p>
+             </article>
+        </div>
     </main>
 </template>
 
