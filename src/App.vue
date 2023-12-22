@@ -3,6 +3,8 @@
 <!-- HTML -->
 <template lang="">
     <AppHeader @searchFilm="getFilms"/>
+    <span class="flag-icon flag-icon-AF">Afghanistan</span>
+                    <span class="flag-icon flag-icon-gr flag-icon-squared"></span>
     <AppMain :cardList="filmList"/>
 </template>
 
