@@ -6,6 +6,7 @@
     <span class="flag-icon flag-icon-AF">Afghanistan</span>
                     <span class="flag-icon flag-icon-gr flag-icon-squared"></span>
     <AppMain :cardList="filmList"/>
+    <testFlags/>
 </template>
 
 <!-- JavaScript -->
@@ -14,6 +15,7 @@
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import testFlags from './components/testFlags.vue';
 
 export default {
 
@@ -21,6 +23,7 @@ export default {
     components :{
       AppHeader,
       AppMain, 
+      testFlags,
 
     },
       // Database variabili 
