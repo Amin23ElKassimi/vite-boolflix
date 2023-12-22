@@ -3,10 +3,9 @@
 <!-- HTML -->
 <template lang="">
     <AppHeader @searchFilm="getFilms"/>
-    <span class="flag-icon flag-icon-AF">Afghanistan</span>
-                    <span class="flag-icon flag-icon-gr flag-icon-squared"></span>
     <AppMain :cardList="filmList"/>
     <testFlags/>
+
 </template>
 
 <!-- JavaScript -->
@@ -47,24 +46,13 @@ export default {
                     // handle success
                     // console.log(response.data.results);
                     this.filmList = response.data.results;
-                    console.log(response.data.results);
+                    
                 })
                 .catch(function (error) {
                     // handle error
                     console.log(error);
                 });
-            console.log(name); 
-        },
-
-        fetchLanguageFlag() {
-
-        const selectedLanguage = this.selectedLanguage;
-        if (this.languageToCountryFlag[selectedLanguage]) {
-        this.countryFlag = this.languageToCountryFlag[selectedLanguage];
-        } else {
-        // Gestione del caso in cui la bandiera non è disponibile
-        this.countryFlag = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Frfsz85r7r3U9i6jjkpHWgHaE8%26pid%3DApi&f=1&ipt=ec61c932d55890fc44c24aa6ef6d13d5f7e9e48a7f508680238333f0074235a9&ipo=images';
-        }
+             
         },
  
     },
@@ -73,7 +61,6 @@ export default {
     created() {
 
     this.getFilms();
-    console.log(this.filmList);
     
     
     }
