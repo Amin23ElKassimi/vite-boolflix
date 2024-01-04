@@ -2,6 +2,7 @@
 
 <!-- HTML -->
 <template lang="">
+
     <AppHeader @searchFilm="getFilms"/>
     <AppMain :cardList="filmList"/>
     <testFlags/>
