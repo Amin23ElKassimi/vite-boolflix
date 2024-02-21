@@ -1,4 +1,4 @@
-
+<!-- HTML & VUE JS -->
 <template lang="">
     <header >
         <nav class="navbar bg-body-tertiary">
@@ -14,11 +14,10 @@
     </header>
 </template>
 
+<!-- JavaScript -->
 <script>
+
 export default {
-
-
-
 
     data() {
         return {
@@ -36,7 +35,7 @@ export default {
 }
 </script>
 
-
+<!-- SCSS -->
 <style lang="scss">
 
     img{

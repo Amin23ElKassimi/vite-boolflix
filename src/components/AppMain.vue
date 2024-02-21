@@ -1,32 +1,26 @@
-<!-- HTML -->
+<!-- HTML & VUE JS -->
 <template lang="">
     <main>
         <!-- Lista Film da stampare come Cards -->
         <div class="lista">                                                          
             <article @click="printTest" v-for="(card, index) in cardList"  class="cards text-uppercase fw-bold">
+                <!-- Card Title  -->
                 <p class="title">
                     {{card.title}}
                 </p>
+                <!-- Original Title -->
                 <p>
                     {{card.original_title}}
                 </p>
+                <!-- Language -->
                 <p>
                     Original Language: {{card.original_language}} 
                     <img :src="'/public/images/lang/' + card.original_language + '.png'" alt="Country Flag" style="width: 30px; height: 20px;">
-                </p>
+                </p> 
+                <!-- Voto -->
                 <p>
                     Vote: {{card.vote_average}}
-                </p>
-
-                <p v-if="countryFlag">
-                    Bandiera della nazione corrispondente:
-                    
-                </p>
-
-                <p v-else>
-                    Bandiera non disponibile per la nazione selezionata.
-                </p>
-                
+                </p>    
              </article>
         </div>
     </main>
@@ -34,9 +28,6 @@
 
 <!-- JavaScript -->
 <script>
-
-// Importa Componente
-
 
 // 
 export default {
@@ -95,7 +86,6 @@ export default {
             type : Object,
             require: true,
         }
-
     },
 
 

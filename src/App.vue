@@ -1,72 +1,68 @@
-
-
 <!-- HTML -->
 <template lang="">
 
     <AppHeader @searchFilm="getFilms"/>
     <AppMain :cardList="filmList"/>
-    <testFlags/>
 
 </template>
 
 <!-- JavaScript -->
 <script>
-// Import componentti e libreria Axios
-import axios from 'axios';
-import AppHeader from './components/AppHeader.vue';
-import AppMain from './components/AppMain.vue';
-import testFlags from './components/testFlags.vue';
 
-export default {
+    // Import componentti e libreria Axios
+    import axios from 'axios';
+    import AppHeader from './components/AppHeader.vue';
+    import AppMain from './components/AppMain.vue';
 
-    // Dichiarare i componenti importati
-    components :{
-      AppHeader,
-      AppMain, 
-      testFlags,
+    export default {
 
-    },
-      // Database variabili 
-      data() {
-        return {
-            filmList: [],
-            searchMovie: '',
-            apiUrl: `https://api.themoviedb.org/3/search/movie?api_key=f032778f20863c5cc77348fa8099a129&query=`,
-            
-        }
-    },
+        // Dichiarare i componenti importati
+        components :{
+        AppHeader,
+        AppMain, 
 
-    // Dove Scrivere le Funzioni
-    methods: {
-        
-        // Metodo Axios
-        getFilms( name ) {
-            //            Qui ho fatto la concatenazione dell'URL
-            axios.get(this.apiUrl + name)
-                .then( (response) => {
-                    // handle success
-                    // console.log(response.data.results);
-                    this.filmList = response.data.results;
-                    
-                })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                });
-             
         },
- 
-    },
+        // Database variabili 
+        data() {
+            return {
+                filmList: [],
+                searchMovie: '',
+                apiUrl: `https://api.themoviedb.org/3/search/movie?api_key=f032778f20863c5cc77348fa8099a129&query=`,
+                
+            }
+        },
 
-    // Hook dove richiamo le mie funzioni
-    created() {
-
-    this.getFilms();
+        // Dove Scrivere le Funzioni
+        methods: {
+            
+            // Metodo Axios
+            getFilms( name ) {
+                //            Qui ho fatto la concatenazione dell'URL
+                axios.get(this.apiUrl + name)
+                    .then( (response) => {
+                        // handle success
+                        // console.log(response.data.results);
+                        this.filmList = response.data.results;
+                        
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                    });
+                
+            },
     
+        },
+
+        // Hook dove richiamo le mie funzioni
+        created() {
+
+        this.getFilms();
+        
+        
+        }
     
     }
-  
-}
 
 </script>
 
